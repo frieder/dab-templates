@@ -20,13 +20,13 @@ Since the above mentioned requirements apply to all of my containers I decided t
 
 Unfortunately DAB uses sysvinit instead of systemd and (at least for the moment) this is hardcoded (see [link1](https://github.com/proxmox/dab/blob/master/DAB.pm#L461) and [link2](https://github.com/proxmox/dab/blob/master/DAB.pm#L463)) in DAB. If you are looking for a Debian LXC teamplate with systemd you still have a few options to make it happen though.
 - Use lxc-create to create a LXC template that uses systemd. All customizations will be lost so this is no real option (at least for me).
-- Use debootstrap to create a LXC template. I've put the required steps in a [snippet](https://bitbucket.org/snippets/flybyte/GEpo8) for your convenience. However it is more work than using DAB (at least in this context when no script is created for the debootstrap steps) so again not my preferred approach.
+- Use debootstrap to create a LXC template. I've put the required steps in a [gist](https://gist.github.com/frieder/9f86ad859b98431c0b67b6458b3577b7) for your convenience. However it is more work than using DAB (at least in this context when no script is created for the debootstrap steps) so again not my preferred approach.
 - Use Ubuntu which comes with systemd out of the box. Nice try but we are looking for a Debian template, aren't we ;)
 - Remove the exclusion in DAB temporarily, create a systemd enabled template and then revert the changes in DAB.
 
-Since I don't create new templates all the time the last option is my preferred approach. It requires the least work of all approaches. I've put the required steps in another [snippet](https://bitbucket.org/snippets/flybyte/yjoMo) for your convenience if you want to try this approach. Please note that all Debian-based DAB templates in this repository require this  workaround since all include systemd as the preferred init script.
+Since I don't create new templates all the time the last option is my preferred approach. It requires the least work of all approaches. I've put the required steps in another [gist](https://gist.github.com/frieder/42af600026d089b3871e2aab4fad183c) for your convenience if you want to try this approach. Please note that all Debian-based DAB templates in this repository require this  workaround since all include systemd as the preferred init script.
 
-> Please note that when using Debian 8/9 with systemd the Spice web console might not work properly anymore. If you rely on this feature you better stick to syvinit or switch to Ubuntu.
+> Please note that when using Debian 8/9 with systemd the Spice web console might not work properly. If you rely on this feature you better stick to syvinit or switch to Ubuntu.
 
 ### Install DAB
 In order to start creating custom templates one has to install DAB first. Please note that this package is not available on regular Debian installations by default. For more information please refer to [https://pve.proxmox.com/wiki/Debian_Appliance_Builder](https://pve.proxmox.com/wiki/Debian_Appliance_Builder).
