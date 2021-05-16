@@ -16,7 +16,6 @@ all: info/init_ok
 
 	dab install ntpdate
 	dab install python3
-#	dab install software-properties-common
 
 	dab install vim
 	if [ -f "../files/.vimrc" ]; then cp ../files/.vimrc ${BASEDIR}/root/.vimrc; fi

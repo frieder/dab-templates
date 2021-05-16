@@ -1,5 +1,5 @@
 # Customized LXC templates for Proxmox
-A set of customized LXC templates using the Debian Appliance Builder (DAB) provided by Proxmox. Currently this repo provides templates of Debian 10 (Buster) and Ubuntu 20.04 (Xenial).
+A set of customized LXC templates using the Debian Appliance Builder (DAB) provided by Proxmox. Currently this repo provides templates of Debian 10 (Buster) and Ubuntu 20.04 (Focal).
 
 ### Motivation
 
